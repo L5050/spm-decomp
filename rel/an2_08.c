@@ -75,17 +75,17 @@ asm UNKNOWN_FUNCTION(func_80c7249c)
 }
 
 s32 evt_rpg_mario_take_damage(EvtEntry* evtEntry) {
-    MarioPouchWork* temp_r3;
+    MarioPouchWork* marioPouchWork;
     s32 damage;
     EvtVar* args;
 
     args = evtEntry->pCurData;
     damage = evtGetValue(evtEntry, *args++);
     evtGetValue(evtEntry, *args++);
-    temp_r3 = pouchGetPtr();
-    temp_r3->hp -= damage;
-    if (temp_r3->hp <= 0) {
-        temp_r3->hp = 0;
+    marioPouchWork = pouchGetPtr();
+    marioPouchWork->hp -= damage;
+    if (marioPouchWork->hp <= 0) {
+        marioPouchWork->hp = 0;
         lbl_80f65660->unk_54 |= 0x8000;
     }
     evtSetValue(evtEntry, *args++, 0);
