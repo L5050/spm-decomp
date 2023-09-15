@@ -1310,7 +1310,7 @@ global:
     # 0x800e8748
     # 0x800e87ac
     # 0x800e8824
-    
+
     # evt_frame.c
     # 0x800e8854
     # 0x800e88d0
@@ -2404,7 +2404,7 @@ global:
     0x8017bf6c: seqMain
     0x8017c074: seqSetSeq
     0x8017c084: seqGetSeq
-    
+
     # seq_load.c
     0x8017c0a0: initNewSaveFile
     0x8017c10c: seq_loadInit
@@ -2419,7 +2419,7 @@ global:
     0x8017ce44: seq_gameInit
     0x8017cf08: seq_gameMain
     0x8017d004: seq_gameExit
-    
+
     # seq_load_sub.c
     0x8017d008: loadInit
     0x8017d1a0: loadExit
@@ -3560,7 +3560,7 @@ global:
     0x8026c0e4: ProbeBarnacle
     0x8026c25c: __OSEnableBarnacle
     0x8026c418: EXIWriteReg
-    
+
     # si.a
     0x8026c5a4: SIBusy
     0x8026c5c0: CompleteTransfer
@@ -5842,7 +5842,7 @@ rel/dan.c:
     0x80e50560: chestRoomDokanDesc
     0x80e50580: chestRoomMapDoorDescs
     0x80e50730: rotenShopItems
-    0x80e50848: rotenShopDef 
+    0x80e50848: rotenShopDef
     0x80e50860: rotenTribeAnimDefs
     0x80e510e8: wracktail_map_door_desc
     0x80e51108: wracktail_dokan_desc
@@ -5851,4 +5851,7 @@ rel/dan.c:
     0x80e522f0: wracktailTribeAnimDefs
         # .bss
     0x80f65888: wp
-    
+
+rel/an2_08.c:
+       # .bss
+  0x80f65660: wp

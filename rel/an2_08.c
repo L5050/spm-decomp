@@ -2,9 +2,29 @@
 #include <evt_cmd.h>
 #include <spm/evtmgr.h>
 #include <spm/evtmgr_cmd.h>
+#include <spm/gxsub.h>
+#include <spm/item_data.h>
+#include <spm/mario_pouch.h>
+#include <spm/mario.h>
+#include <spm/msgdrv.h>
+#include <spm/system.h>
 #include <spm/rel/an2_08.h>
 
-extern An2_08Work * lbl_80f65660;
+static An2_08Work * wp;
+static char * lbl_80cdf43c;
+const char * lbl_80def2c8;
+u32 lbl_80cddef8;
+Unk lbl_80cddf00;
+Unk lbl_80cdf610;
+Unk lbl_80cddf04;
+Unk lbl_80def2a8;
+Unk lbl_80cddf18;
+Unk lbl_80cddf14;
+Unk lbl_80cddf08;
+
+u32 lbl_80f65660[] = {
+    0x00000000, 0x00000000
+};
 
 asm UNKNOWN_FUNCTION(func_80c6c908)
 {
@@ -75,21 +95,21 @@ asm UNKNOWN_FUNCTION(func_80c7249c)
 }
 
 s32 evt_rpg_mario_take_damage(EvtEntry* evtEntry) {
-    MarioPouchWork* marioPouchWork;
+    MarioPouchWork* temp_r3;
     s32 damage;
     EvtVar* args;
 
     args = evtEntry->pCurData;
     damage = evtGetValue(evtEntry, *args++);
     evtGetValue(evtEntry, *args++);
-    marioPouchWork = pouchGetPtr();
-    marioPouchWork->hp -= damage;
-    if (marioPouchWork->hp <= 0) {
-        marioPouchWork->hp = 0;
+    temp_r3 = pouchGetPtr();
+    temp_r3->hp -= damage;
+    if (temp_r3->hp <= 0) {
+        temp_r3->hp = 0;
         lbl_80f65660->unk_54 |= 0x8000;
     }
     evtSetValue(evtEntry, *args++, 0);
-    return EVT_RET_CONTINUE;
+    return 2;
 }
 
 asm UNKNOWN_FUNCTION(func_80c725c0)
