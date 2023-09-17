@@ -16,5 +16,6 @@ dan.c:
 
 an2_08.c:
     .text:   [0x80c6c908, 0x80c72d5c]
-    .data:   [0x80def2c8, 0x80df4428]
+    .rodata: [0x80cdddd8, 0x80cdf6a0]
+    .data:   [0x80def2a8, 0x80df4428]
     .bss:    [0x80f65660, 0x80f65668]

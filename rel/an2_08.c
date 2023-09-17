@@ -1,14 +1,24 @@
 #include <common.h>
 #include <evt_cmd.h>
+
+#include <spm/dispdrv.h>
 #include <spm/evtmgr.h>
 #include <spm/evtmgr_cmd.h>
+#include <spm/fontmgr.h>
 #include <spm/gxsub.h>
 #include <spm/item_data.h>
 #include <spm/mario_pouch.h>
 #include <spm/mario.h>
 #include <spm/msgdrv.h>
+#include <spm/spmario.h>
+#include <spm/spmario_snd.h>
 #include <spm/system.h>
+#include <spm/wpadmgr.h>
 #include <spm/rel/an2_08.h>
+#include <wii/cx.h>
+#include <wii/gx.h>
+#include <msl/stdio.h>
+#include <msl/string.h>
 
 static An2_08Work * wp;
 static char * lbl_80cdf43c;
@@ -21,6 +31,13 @@ Unk lbl_80def2a8;
 Unk lbl_80cddf18;
 Unk lbl_80cddf14;
 Unk lbl_80cddf08;
+Unk lbl_80def2b8;
+Unk lbl_80cddf20;
+Unk lbl_80cddf58;
+Unk lbl_80cddf90;
+void func_80028774();
+void func_80c76d00();
+void func_801561d4();
 
 u32 lbl_80f65660[] = {
     0x00000000, 0x00000000
@@ -106,7 +123,7 @@ s32 evt_rpg_mario_take_damage(EvtEntry* evtEntry) {
     temp_r3->hp -= damage;
     if (temp_r3->hp <= 0) {
         temp_r3->hp = 0;
-        lbl_80f65660->unk_54 |= 0x8000;
+        wp->unk_54 |= 0x8000;
     }
     evtSetValue(evtEntry, *args++, 0);
     return 2;
